@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "typescript": "^1.8.10"
+  },
+  "scripts": {
+    "link": "cd nativescript-jsx && npm link && cd ../app-jsx-example && npm link nativescript-jsx && cd ..",
+    "build": "tsc -p nativescript-jsx"
+  }
+}
