@@ -6,7 +6,9 @@
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "noEmitHelpers": true,
-        "noEmitOnError": true
+        "noEmitOnError": true,
+        "jsx": "react",
+        "reactNamespace": "UIBuilder"
     },
     "exclude": [
         "node_modules",

@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "declaration": false,
+        "module": "commonjs",
+        "target": "es5",
+        "experimentalDecorators": true
+    },
+    "files": [
+        "builder.ts",
+        "core.d.ts",
+        "jsx.d.ts",
+        "node_modules/tns-core-modules/tns-core-modules.d.ts",
+        "reference.d.ts"
+    ]
+}
