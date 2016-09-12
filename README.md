@@ -5,8 +5,10 @@ To wire the `nativescript-jsx` and the `app-jsx-example` do `npm run link`.
 To rebuild the plugin `npm run build` or `tsc` in the `nativescript-jsx`.
 Then do a regular `tns run|livesync ios|android --path app-jsx-example`, (livesync with --watch may not sync plugins).
 
-To work on the plugin `npm run link` and `code app-jsx-example`, the `node_modules/nativescript-jsx` will be linked so edit plugin stuff there.
-You can experiment with the intellisence in the `main-page.tsx`.
+All of the above is added to `prepublish` and will happen on `npm install` anyway. Really, check the npm scripts in the package.json.
+
+To work on the plugin `code .`, the `node_modules/nativescript-jsx` will be linked in node_modules.
+You can experiment with the intellisence in the `app-jsx-example/app/main-page.tsx`.
 
 ### How does it work
 The tns app need the following flags in its `tsconfig.json`:

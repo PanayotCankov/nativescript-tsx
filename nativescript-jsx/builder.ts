@@ -8,6 +8,12 @@ export class UIBuilder {
 
         for(let key in attributes) {
             let value = attributes[key];
+
+            // Because why not?
+            if (key === "class") {
+                key = "cssClass";
+            }
+
             if (isString(value) && isBinding(attributes[key])) {
                 var bindOptions = getBindingOptions(key, getBindingExpressionFromAttribute(value));
                 console.log(" - binding " + key);
@@ -26,8 +32,8 @@ export class UIBuilder {
                 continue;
             }
 
-            console.log(" - set property " + key + " to " + attributes[key]);
-            view[key] = attributes[key];
+            console.log(" - set property " + key + " to " + value);
+            view[key] = value;
         }
 
         if (content) {

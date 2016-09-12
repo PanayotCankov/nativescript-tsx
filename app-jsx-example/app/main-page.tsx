@@ -1,3 +1,4 @@
+// Better re-export these in a single module... God, I can't wait for ES6 module syntax.
 import {View} from "ui/core/view";
 import {Page} from "ui/page";
 import {StackLayout} from "ui/layouts/stack-layout";
@@ -19,7 +20,8 @@ function navigatingTo(args: EventData) {
 export var createPage = () =>
 <Page navigatingTo={navigatingTo}> {/* Local function */}
     <StackLayout orientation="vertical">
-        <Label text="{{ message }}" class="message" textWrap={true} /> {/* Data binding */}
-        <Button text="Button" tap="{{ onTap }}" /> {/* Binding to function in the view model */}
+        <Label text="Tap the button" class="title" /> 
+        <Button text="TAP" tap="{{ onTap }}" /> {/* Binding to function in the view model */}
+        <Label text="{{ message }}" class="message" textWrap={true} /> {/* Data binding text and a nice boolean wrap type */}
     </StackLayout>
 </Page>;
