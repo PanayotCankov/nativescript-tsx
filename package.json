@@ -3,7 +3,7 @@
     "typescript": "^1.8.10"
   },
   "scripts": {
-    "prepublish": "cd nativescript-jsx && npm install && cd .. && npm link",
+    "prepublish": "cd nativescript-jsx && npm install && cd .. && cd app-jsx-example && npm install && cd .. && npm run link && npm run build",
     "link": "cd nativescript-jsx && npm link && cd ../app-jsx-example && npm link nativescript-jsx && cd ..",
     "build": "npm run tsc-nativescript-jsx && npm run tsc-app-jsx-example",
     "tsc-nativescript-jsx": "tsc -p nativescript-jsx",

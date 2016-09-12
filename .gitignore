@@ -1,3 +1,4 @@
 node_modules
 platforms
-.js
+*.js
+*.js.map
