@@ -19,7 +19,7 @@ The tns app need the following flags in its `tsconfig.json`:
 jsx will enable jsx and tsx compilation, reactNamespace will emit "UIBuilder.createElement" instead "React.createElement",
 just enough to make it work, yet show we don't support full blown React experience yet.
 
-Also the following to pull global object declarations:
+Also the following to references.d.ts to pull global object declarations:
 ```
 /// <reference path="./node_modules/nativescript-jsx/jsx.d.ts" /> Enable JSX typechecking.
 /// <reference path="./node_modules/nativescript-jsx/core.d.ts" /> Patch core modules with properties.
