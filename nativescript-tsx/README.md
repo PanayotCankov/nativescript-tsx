@@ -2,7 +2,7 @@
 
 The tns app need the following flags in its `tsconfig.json`:
 ```
-  "tsx": "react",
+  "jsx": "react",
   "reactNamespace": "UIBuilder"
 ```
 tsx will enable tsx and tsx compilation, reactNamespace will emit "UIBuilder.createElement" instead "React.createElement",
