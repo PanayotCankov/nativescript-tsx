@@ -7,7 +7,7 @@ import {Button} from "ui/button";
 import {EventData} from "data/observable";
 
 // Provide the UIBuilder used by tsx output to querry createElement calls.
-import {UIBuilder} from "nativescript-jsx";
+import {UIBuilder} from "nativescript-tsx";
 
 import { HelloWorldModel } from "./main-view-model";
 

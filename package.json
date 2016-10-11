@@ -3,10 +3,10 @@
     "typescript": "^2.0.3"
   },
   "scripts": {
-    "prepublish": "cd nativescript-jsx && npm install && cd .. && cd app-jsx-example && npm install && cd .. && npm run link && npm run build",
-    "link": "cd nativescript-jsx && npm link && cd ../app-jsx-example && npm link nativescript-jsx && cd ..",
-    "build": "npm run tsc-nativescript-jsx && npm run tsc-app-jsx-example",
-    "tsc-nativescript-jsx": "tsc -p nativescript-jsx",
-    "tsc-app-jsx-example": "tsc -p app-jsx-example"
+    "prepublish": "cd nativescript-tsx && npm install && cd .. && cd app-tsx-example && npm install && cd .. && npm run link && npm run build",
+    "link": "cd nativescript-tsx && npm link && cd ../app-tsx-example && npm link nativescript-tsx && cd ..",
+    "build": "npm run tsc-nativescript-tsx && npm run tsc-app-tsx-example",
+    "tsc-nativescript-tsx": "tsc -p nativescript-tsx",
+    "tsc-app-tsx-example": "tsc -p app-tsx-example"
   }
 }
