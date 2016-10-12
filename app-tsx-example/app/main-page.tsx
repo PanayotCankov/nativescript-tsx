@@ -17,11 +17,11 @@ function navigatingTo(args: EventData) {
     page.bindingContext = new HelloWorldModel();
 }
 
-export var createPage =
-<Page navigatingTo={navigatingTo}> {/* Local function */}
+export var createPage = () =>
+<Page navigatingTo={navigatingTo}>
     <StackLayout orientation="vertical">
         <Label text="Tap the button" class="title" /> 
-        <Button text="TAP" tap="{{ onTap }}" /> {/* Binding to function in the view model */}
-        <Label text="{{ message }}" class="message" textWrap={true} /> {/* Data binding text and a nice boolean wrap type */}
+        <Button text="TAP" tap="{{ onTap }}" />
+        <Label text="{{ message }}" class="message" textWrap={true} />
     </StackLayout>
 </Page>;

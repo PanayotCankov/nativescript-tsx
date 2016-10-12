@@ -34,7 +34,7 @@ function navigatingTo(args: EventData) {
     page.bindingContext = new HelloWorldModel();
 }
 
-export var createPage =
+export var createPage = () =>
 <Page navigatingTo={navigatingTo}>
     <StackLayout orientation="vertical">
         <Label text="Tap the button" class="title" /> 

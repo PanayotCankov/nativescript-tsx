@@ -16,53 +16,52 @@ export class UIBuilder {
             }
             return new Setter(ctor, content[0]);
         } else {
-            return () => {
-                let view = new ctor();
-                // console.log("new " + ctor.name + "()");
+            let view = new ctor();
+            // console.log("new " + ctor.name + "()");
 
-                for(let key in attributes) {
-                    let value = attributes[key];
+            for(let key in attributes) {
+                let value = attributes[key];
 
-                    // Because why not?
-                    if (key === "class") {
-                        key = "cssClass";
-                    }
-
-                    if (isString(value) && isBinding(attributes[key])) {
-                        var bindOptions = getBindingOptions(key, getBindingExpressionFromAttribute(value));
-                        // console.log(" - binding " + key);
-                        view.bind({
-                            sourceProperty: bindOptions[bindingConstants.sourceProperty],
-                            targetProperty: bindOptions[bindingConstants.targetProperty],
-                            expression: bindOptions[bindingConstants.expression],
-                            twoWay: bindOptions[bindingConstants.twoWay]
-                        }, bindOptions[bindingConstants.source]);
-                        continue;
-                    }
-
-                    if (isEventOrGesture(key, view) && typeof value === "function") {
-                        // console.log(" - event or gesture " + key + " " + value);
-                        view.on(key, value);
-                        continue;
-                    }
-
-                    // console.log(" - set property " + key + " to " + value);
-                    view[key] = value;
+                // Because why not?
+                if (key === "class") {
+                    key = "cssClass";
                 }
 
-                if (content) {
-                    content.filter(f => typeof f === "function").forEach(factory => {
-                        let child = new factory();
-                        let name = factory.name;
-                        view._addChildFromBuilder(name, child);
-                    });
-                    content.filter(s => s instanceof Setter).forEach(setter => {
-                        view._setValue(setter.property, setter.value);
-                    });
+                if (isString(value) && isBinding(attributes[key])) {
+                    var bindOptions = getBindingOptions(key, getBindingExpressionFromAttribute(value));
+                    // console.log(" - binding " + key);
+                    view.bind({
+                        sourceProperty: bindOptions[bindingConstants.sourceProperty],
+                        targetProperty: bindOptions[bindingConstants.targetProperty],
+                        expression: bindOptions[bindingConstants.expression],
+                        twoWay: bindOptions[bindingConstants.twoWay]
+                    }, bindOptions[bindingConstants.source]);
+                    continue;
                 }
 
-                return view;
+                if (isEventOrGesture(key, view) && typeof value === "function") {
+                    // console.log(" - event or gesture " + key + " " + value);
+                    view.on(key, value);
+                    continue;
+                }
+
+                // console.log(" - set property " + key + " to " + value);
+                view[key] = value;
             }
+
+            if (content) {
+                // content.forEach(c => console.log(" - child: " + c));
+                content.filter(v => v instanceof View).forEach(child => {
+                    let name = (<any>child.constructor).name;
+                    view._addChildFromBuilder(name, child);
+                    // console.log("Adding " + child + " to " + view);
+                });
+                content.filter(s => s instanceof Setter).forEach(setter => {
+                    view._setValue(setter.property, setter.value);
+                });
+            }
+
+            return view;
         }
     }
 }
