@@ -13,7 +13,7 @@
     }
   },
   "dependencies": {
-    "tns-core-modules": "2.3.0"
+    "tns-core-modules": "^3.3.0"
   },
   "devDependencies": {
     "babel-traverse": "6.15.0",
